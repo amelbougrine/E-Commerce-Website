@@ -1,5 +1,8 @@
 import React from 'react';
 import './App.css';
+import {BrowserRouter, Route} from 'react-router-dom';
+import  HomeScreen from './screens/HomeScreen';
+import  ProductScreen from './screens/ProductScreen';
 
 function App() {
   const openMenu = () => {
@@ -7,6 +10,7 @@ function App() {
         sidebar.classList.toggle("open");
   }
   return (
+    <BrowserRouter>
     <div className="grid-container">
       <header className="header">
         <div className="brand">
@@ -30,48 +34,13 @@ function App() {
       </aside>
       <main className="main">
         <div className="content">
-          <ul className="products">
-            <li>
-              <div className="product">
-                <img className="product-image" src="./images/p1.jpg" alt="Product"/>
-                <div className="product-name"><a href="product.html">iPhone 11</a></div>
-                <div className="product-brand">Apple</div>
-                <div className="product-price">1800.99$</div>
-                <div className="product-rating">4.5 stars (10 Reviews</div>
-              </div>
-            </li> 
-            <li>
-              <div className="product">
-                <img className="product-image" src="./images/p1.jpg" alt="Product"/>
-                <div className="product-name"><a href="product.html">iPhone 11</a></div>
-                <div className="product-brand">Apple</div>
-                <div className="product-price">1800.99$</div>
-                <div className="product-rating">4.5 stars (10 Reviews</div>
-              </div>
-            </li> 
-            <li>
-              <div className="product">
-                <img className="product-image" src="./images/p1.jpg" alt="Product"/>
-                <div className="product-name"><a href="product.html">iPhone 11</a></div>
-                <div className="product-brand">Apple</div>
-                <div className="product-price">1800.99$</div>
-                <div className="product-rating">4.5 stars (10 Reviews)</div>
-              </div>
-            </li> 
-            <li>
-              <div className="product">
-                <img className="product-image" src="./images/p1.jpg" alt="Product"/>
-                <div className="product-name"><a href="product.html">iPhone 11</a></div>
-                <div className="product-brand">Apple</div>
-                <div className="product-price">1800.99$</div>
-                <div className="product-rating">4.5 stars (10 Reviews</div>
-              </div>
-            </li> 
-          </ul>
+          <Route id="root" path="/products/:id" component={ProductScreen} />
+          <Route path="/" exact={true} component={HomeScreen} />
         </div>
       </main>
       <footer className="footer">All Right Reserved</footer>
     </div>
+    </BrowserRouter>
   );
 }
 
