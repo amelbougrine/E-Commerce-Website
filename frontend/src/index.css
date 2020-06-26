@@ -134,3 +134,23 @@ a:hover {
 .open {
   transform: translate(0);
 }
+/* Product details */
+.details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.details-image {
+  flex: 2 1 60rem;
+  width: 100%;
+}
+.details-image img {
+  max-width: 60rem;
+}
+.details-info {
+  flex: 1 1 30rem;
+}
+.details-action {
+  flex: 1 1 30rem;
+}
