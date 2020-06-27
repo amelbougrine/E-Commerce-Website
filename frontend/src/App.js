@@ -5,9 +5,12 @@ import  HomeScreen from './screens/HomeScreen';
 import  ProductScreen from './screens/ProductScreen';
 
 function App() {
+  
   const openMenu = () => {
     var sidebar = document.querySelector(".sidebar");
-        sidebar.classList.toggle("open");
+    var sidebar2 = document.querySelector(".sidebar2");
+    sidebar.classList.toggle("open");
+    sidebar2.classList.toggle("open"); 
   }
   return (
     <BrowserRouter>
@@ -32,6 +35,7 @@ function App() {
           <li><a href="index.html">Tablets</a></li>
         </ul>
       </aside>
+      <div className="sidebar2" onClick={openMenu}></div>
       <main className="main">
         <div className="content">
           <Route id="root" path="/product/:id" component={ProductScreen} />
