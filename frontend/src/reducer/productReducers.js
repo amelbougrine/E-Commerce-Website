@@ -1,4 +1,4 @@
-import { PRODUCT_LIST_REQUEST, PRODUCT_LIST_SUCCESS, PRODUCT_LIST_FAIL } from "../constantes/productConstantes";
+import {PRODUCT_LIST_REQUEST, PRODUCT_LIST_SUCCESS, PRODUCT_LIST_FAIL} from '../constantes/productConstantes';
 
 function productListReducer(state = {products:[]}, action) {
     switch (action.type) {
@@ -11,6 +11,5 @@ function productListReducer(state = {products:[]}, action) {
         default:
             return state;
     }
-}
-
-export {productListReducer}
+};
+export {productListReducer};

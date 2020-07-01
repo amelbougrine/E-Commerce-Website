@@ -14,7 +14,7 @@ function HomeScreen (props) {
     return () => {
       //
     };
-  }, [])
+  },[])
   return (
   loading ? <div>Loading...</div> : error ? <div>{error}</div> :
   <ul className="products">
