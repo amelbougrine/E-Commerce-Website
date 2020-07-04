@@ -7,7 +7,8 @@ export default {
         price: '339.99',
         brand: 'Huawei',
         rating: 2.5,
-        reviews: 3.0
+        reviews: 3.0,
+        countInStock: 6
     },
     {
         id: '2',
@@ -16,7 +17,8 @@ export default {
         price: '1809.99',
         brand: 'Apple',
         rating: 4.5,
-        reviews: 10
+        reviews: 10,
+        countInStock: 10
     },
     {
         id: '3',
@@ -25,7 +27,8 @@ export default {
         price: '1299.00',
         brand: 'Sumsung',
         rating: 4.5,
-        reviews: 12
+        reviews: 12,
+        countInStock: 16
     },
     {
         id: '4',
@@ -34,7 +37,8 @@ export default {
         price: '2806.99',
         brand: 'Apple',
         rating: 4.0,
-        reviews: 17
+        reviews: 17,
+        countInStock: 0
     },
     {        
         id: '5',
@@ -43,7 +47,8 @@ export default {
         price: '1406.00',
         brand: 'HP',
         rating: 3.0,
-        reviews: 13
+        reviews: 13,
+        countInStock: 3
     },
     {
         id: '6',
@@ -52,7 +57,8 @@ export default {
         price: '735.99',
         brand: 'Apple',
         rating: 3.5,
-        reviews: 5
+        reviews: 5,
+        countInStock: 8
     }
     ]
 }
