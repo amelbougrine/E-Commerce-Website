@@ -202,4 +202,39 @@ a:hover {
   font-size: 1.8rem;
   color: #000000
 }
-
+/*  Cart  */
+.cart {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem;
+  align-items: flex-start;
+}
+.cart-list {
+  flex: 3 1 60rem;
+}
+.cart-action {
+  flex: 1 1 20rem;
+  background-color: #f8f8f8;
+  border: 0.1rem solid #808080;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.cart-list-container {
+  padding: 0;
+  list-style-type: none;
+  padding: 1rem;
+}
+.cart-list-container  li {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.cart-list-container  li img {
+  max-width: 10rem;
+  max-height: 10rem;
+}
+.cart-list-container  li:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
