@@ -26,7 +26,7 @@ function App() {
         </div>
         <div className="header-links">
           <a href="card.html">Cart</a>
-          <a href="signin.html">Sign In</a>
+          <Link to ="/signin">Sign In</Link>
         </div>
       </header>
       <aside className="sidebar">
@@ -40,7 +40,7 @@ function App() {
       <div className="sidebar2" onClick={openMenu}></div>
       <main className="main">
         <div className="content">
-          <Route path="signin" component={SigninScreen} />
+          <Route path="/signin" component={SigninScreen} />
           <Route id="root" path="/product/:id" component={ProductScreen} />
           <Route path="/cart/:id?" component={CartScreen} />
           <Route path="/" exact={true} component={HomeScreen} />
