@@ -1,29 +1,40 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
-import {useSelector, useDispatch} from 'react-redux'
+import {useSeletor, useDispatch} from 'react-redux';
+import {signin} from '../action/userActions';
 
 function SigninScreen (props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const userSignin = useSeletor( state => state.userSignin);
+    const {loading, userInfo, error} = userSignin;
     const dispatch = useDispatch();     
     useEffect(() => {
+        if (userInfo) {
+            props.history.push("/");
+        }
         return () => {
           //
         };
-    },[])
+    },[userInfo])
     const submitHandler = (e) => {
         e.preventDefault();
-
+        dispatch(signin(email, password));
     }
     return <div className="form">
         <form onSubmit={submitHandler}>
             <ul className="form-container">
+                <li><h2>Sign-In</h2></li>
                 <li>
-                    <label for="email">Email</label>
+                    {loading && <div>Loading...</div>}
+                    {error && <div>{error}</div>}
+                </li>
+                <li>
+                    <label htmlfor="email">Email</label>
                     <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}></input>
                 </li>
                 <li>
-                    <label for="password">Password</label>
+                    <label htmlfor="password">Password</label>
                     <input type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)}></input>
                 </li>
                 <li>
@@ -31,7 +42,7 @@ function SigninScreen (props) {
                 </li>
                 <li>New To E-Shop ?</li>
                 <li>
-                    <Link to="/regester" className="button secondary text-center">Create your E-Shop account</Link>
+                    <Link to="/register" className="button secondary text-center">Create your E-Shop account</Link>
                 </li>
             </ul>
         </form>

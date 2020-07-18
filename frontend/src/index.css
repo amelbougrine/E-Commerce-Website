@@ -136,7 +136,6 @@ a:hover {
 .sidebar a:hover {
   color: #ff8000;
 }
-
 .sidebar2 {
   position: fixed;
   transition: all 0.5s;
@@ -204,7 +203,7 @@ a:hover {
   color: #000000
 }
 .button.secondary {
-  background-color: #808080;
+  background-color: #f0f0f0;
 }
 .text-center {
   text-align: center;
@@ -261,6 +260,13 @@ a:hover {
 }
 .full-width {
   width: 100%;
+}
+/*  form  */
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 .form-container {
   display: flex;
