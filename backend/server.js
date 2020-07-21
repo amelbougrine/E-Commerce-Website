@@ -11,7 +11,7 @@ const mongodbUrl = config.MONGODB_URL;
 mongoose.connect(mongodbUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  createIndexes: true
+  //useCreateIndexes: true
 }).catch(error => console.log(error.reason));
 
 const app = express();
