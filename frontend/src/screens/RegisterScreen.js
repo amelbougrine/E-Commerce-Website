@@ -4,8 +4,8 @@ import {useSelector, useDispatch} from 'react-redux';
 import {register} from '../actions/userActions';
 
 function RegisterScreen (props) {
-    const [email, setEmail] = useState('');
     const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [rePassword, setRePassword] = useState('');
     const userRegister = useSelector( state => state.userRegister);
@@ -21,15 +21,19 @@ function RegisterScreen (props) {
     },[userInfo])
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(register(email, password));
+        dispatch(register(name, email, password, rePassword));
     }
     return <div className="form">
         <form onSubmit={submitHandler}>
             <ul className="form-container">
-                <li><h2>Sign-In</h2></li>
+                <li><h2>Create Account</h2></li>
                 <li>
                     {loading && <div>Loading...</div>}
                     {error && <div>{error}</div>}
+                </li>
+                <li>
+                    <label htmlFor="name">Name</label>
+                    <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)}></input>
                 </li>
                 <li>
                     <label htmlFor="email">Email</label>
@@ -40,11 +44,15 @@ function RegisterScreen (props) {
                     <input type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)}></input>
                 </li>
                 <li>
+                    <label htmlFor="rePassword">Re-Enter Password</label>
+                    <input type="password" name="rePassword" id="rePassword" onChange={(e) => setRePassword(e.target.value)}></input>
+                </li>
+                <li>
                     <button type="submit" className="button">Register</button>
                 </li>
-                <li>New To E-Shop ?</li>
+                <li>Already have an account ?</li>
                 <li>
-                    <Link to="/register" className="button secondary text-center">Create your E-Shop account</Link>
+                    <Link to="/signin" className="button secondary text-center">Sign-in</Link>
                 </li>
             </ul>
         </form>
