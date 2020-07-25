@@ -9,5 +9,19 @@ const getToken = (user) => {
         isAdmin: user.isAdmin,
     }, config.JWT_SECRET,{ expiresIn: '48h',});
 };
-
-export { getToken };
+const isAuth = (req, res, next) => {
+    const token = req.headers.authorization;
+    if (token) {
+        const onlyToken = token.slice(7, token.length);
+        jwt.verify(onlyToken, config.JWT_SECRET, (err, decode) => {
+            if(err) {
+                return res.status(401).send({message:'Invalid Token'});
+            }
+            req.user = token;
+            next();
+            return
+        });
+        return res.status(401).send
+    }
+}
+export { getToken, isAuth};
