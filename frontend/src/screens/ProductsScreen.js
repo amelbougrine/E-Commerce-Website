@@ -6,8 +6,15 @@ import {signin} from '../actions/userActions';
 function ProductScreen (props) {
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
+    const [image, setImage] = useState('');
+    const [brande, setBrande] = useState('');
+    const [category, setCategory] = useState('');
+    const [countInStock, setCountInStock] = useState('');
+    const [description, setDescription] = useState('');
+    const [rating, setRating] = useState('');
+    const [reviews, setReviews] = useState('');
     const productSave = useSelector( state => state.productSave);
-    const {loading, loadingSave, success: successSave,  error: errorSave} = productSave;
+    const {loading: loadingSave, success: successSave,  error: errorSave} = productSave;
     const dispatch = useDispatch();     
     useEffect(() => {
   
@@ -28,23 +35,47 @@ function ProductScreen (props) {
                     {error && <div>{error}</div>}
                 </li>
                 <li>
-                    <label htmlFor="email">Email</label>
-                    <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}></input>
+                    <label htmlFor="name">Name</label>
+                    <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)}></input>
                 </li>
                 <li>
-                    <label htmlFor="password">Password</label>
-                    <input type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)}></input>
+                    <label htmlFor="price">Price</label>
+                    <input type="text" name="price" id="price" onChange={(e) => setName(e.target.value)}></input>
                 </li>
                 <li>
-                    <button type="submit" className="button">Signin</button>
+                    <label htmlFor="image">Image</label>
+                    <input type="text" name="image" id="image" onChange={(e) => setName(e.target.value)}></input>
                 </li>
-                <li>New To E-Shop ?</li>
                 <li>
-                    <Link to="/register" className="button secondary text-center">Create your E-Shop account</Link>
+                    <label htmlFor="name">Name</label>
+                    <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)}></input>
+                </li>
+                <li>
+                    <label htmlFor="name">Name</label>
+                    <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)}></input>
+                </li>
+                <li>
+                    <label htmlFor="name">Name</label>
+                    <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)}></input>
+                </li>
+                <li>
+                    <label htmlFor="name">Name</label>
+                    <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)}></input>
+                </li>
+                <li>
+                    <label htmlFor="name">Name</label>
+                    <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)}></input>
+                </li>
+                <li>
+                    <label htmlFor="name">Name</label>
+                    <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)}></input>
+                </li>
+                <li>
+                    <button type="submit" className="button">Create</button>
                 </li>
             </ul>
         </form>
     </div>
         
 }
-export default SigninScreen;
+export default ProductScreen;
