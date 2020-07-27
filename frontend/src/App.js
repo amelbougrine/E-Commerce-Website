@@ -5,6 +5,7 @@ import  HomeScreen from './screens/HomeScreen';
 import  ProductScreen from './screens/ProductScreen';
 import  CartScreen from './screens/CartScreen';
 import  RegisterScreen from './screens/RegisterScreen';
+import  ProductsScreen from './screens/ProductsScreen';
 import SigninScreen from './screens/SigninScreen';
 import {useSelector} from 'react-redux';
 
@@ -45,6 +46,7 @@ function App() {
       <div className="sidebar2" onClick={openMenu}></div>
       <main className="main">
         <div className="content">
+          <Route path="/products" component={ProductsScreen} />  
           <Route path="/signin" component={SigninScreen} />
           <Route path="/register" component={RegisterScreen} />
           <Route id="root" path="/product/:id" component={ProductScreen} />
