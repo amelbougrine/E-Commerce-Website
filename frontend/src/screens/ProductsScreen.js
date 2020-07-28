@@ -29,10 +29,9 @@ function ProductScreen (props) {
                 <li><h2>Create Product</h2></li>
                 <li>
                     {loadingSave && <div>Loading...</div>}
-                    {errorSave && <div>{error}</div>}
+                    {errorSave && <div>{errorSave}</div>}
                 </li>
                 <li>
-
                     <label htmlFor="name">Name</label>
                     <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)}></input>
                 </li>
