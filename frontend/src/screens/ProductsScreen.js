@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {saveProduct} from '../actions/productActions';
+import {listProducts, saveProduct} from '../actions/productActions';
 
 function ProductScreen (props) {
     const [name, setName] = useState('');
@@ -10,11 +10,13 @@ function ProductScreen (props) {
     const [category, setCategory] = useState('');
     const [countInStock, setCountInStock] = useState('');
     const [description, setDescription] = useState('');
+    const productList = useSelector( state => state.productList);
     const productSave = useSelector( state => state.productSave);
+    const {loading, products, error} = productList;
     const {loading: loadingSave, success: successSave,  error: errorSave} = productSave;
     const dispatch = useDispatch();     
     useEffect(() => {
-  
+        dispatch(listProducts());
         return () => {
           //
         };
@@ -23,7 +25,41 @@ function ProductScreen (props) {
         e.preventDefault();
         dispatch(saveProduct({name, price, image, brand, category, countInStock, description}));
     }
-    return <div className="form">
+    return  <div className="content content-margined">
+        <div className="product-header">
+            <h3>Products</h3>
+            <button>Create Product</button>
+        </div>
+        <div className="product-list">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>pprice</th>
+                    <th>Category</th>
+                    <th>Brande</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {products.map(product => (
+                <tr>
+                    <td>{product.id}</td>
+                    <td>{product.name}</td>
+                    <td>{product.price}</td>
+                    <td>{product.category}</td>
+                    <td>{product.brand}</td>
+                    <th>
+                        {product.name}
+                    </th>
+                </tr>   
+                ))}
+            </tbody>
+        </table>
+        </div>
+    </div>
+    <div className="form">
         <form onSubmit={submitHandler}>
             <ul className="form-container">
                 <li><h2>Create Product</h2></li>
@@ -64,7 +100,7 @@ function ProductScreen (props) {
                 </li>
             </ul>
         </form>
-    </div>
+    </div>)
         
 }
 export default ProductScreen;
