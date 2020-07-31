@@ -3,6 +3,8 @@ import {useSelector, useDispatch} from 'react-redux';
 import {listProducts, saveProduct} from '../actions/productActions';
 
 function ProductScreen (props) {
+    const [modalVisible, setmodalVisibla] = useState(false);
+    const [id, setId] = useState('');
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
     const [image, setImage] = useState('');
@@ -21,8 +23,16 @@ function ProductScreen (props) {
           //
         };
     },[])
-    const openModal = (p) => {
-        
+    const openModal = (product) => {
+        setModalVisible(true);
+        setId(product.id);
+        setName(product.name);
+        setPrice(product.price);
+        setImage(product.image);
+        setBrand(product.brand);
+        setCountInStock(product.countInStock);
+        setRating(product.rating);
+        setReviews(product.reviews);
     }
     const submitHandler = (e) => {
         e.preventDefault();
@@ -31,8 +41,9 @@ function ProductScreen (props) {
     return  <div className="content content-margined">
         <div className="product-header">
             <h3>Products</h3>
-            <button>Create Product</button>
+            <button onClick={()=>openModal({})}>Create Product</button>
         </div>
+        {modalVisible &&
         <div className="form">
             <form onSubmit={submitHandler}>
                 <ul className="form-container">
@@ -74,7 +85,7 @@ function ProductScreen (props) {
                     </li>
                 </ul>
             </form>
-        </div>
+        </div>}
         <div className="product-list">
             <table>
                 <thead>
@@ -96,7 +107,7 @@ function ProductScreen (props) {
                         <td>{product.category}</td>
                         <td>{product.brand}</td>
                         <td>
-                            <button>Edit</button>
+                            <button onClick={()=>openModal(product)}>Edit</button>
                             <button>Delete</button>
                         </td>
                     </tr>   
