@@ -31,12 +31,10 @@ function ProductScreen (props) {
         setImage(product.image);
         setBrand(product.brand);
         setCountInStock(product.countInStock);
-        setRating(product.rating);
-        setReviews(product.reviews);
     }
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(saveProduct({name, price, image, brand, category, countInStock, description}));
+        dispatch(saveProduct({id: id, name, price, image, brand, category, countInStock, description}));
     }
     return  <div className="content content-margined">
         <div className="product-header">
@@ -54,34 +52,37 @@ function ProductScreen (props) {
                     </li>
                     <li>
                         <label htmlFor="name">Name</label>
-                        <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)}></input>
+                        <input type="text" name="name" value={name} id="name" onChange={(e) => setName(e.target.value)}></input>
                     </li>
                     <li>
                         <label htmlFor="price">Price</label>
-                        <input type="text" name="price" id="price" onChange={(e) => setPrice(e.target.value)}></input>
+                        <input type="text" name="price" value={price} id="price" onChange={(e) => setPrice(e.target.value)}></input>
                     </li>
                     <li>
                         <label htmlFor="image">Image</label>
-                        <input type="text" name="image" id="image" onChange={(e) => setImage(e.target.value)}></input>
+                        <input type="text" name="image" value={image} id="image" onChange={(e) => setImage(e.target.value)}></input>
                     </li>
                     <li>
                         <label htmlFor="brand">Brand</label>
-                        <input type="text" name="brand" id="brand" onChange={(e) => setBrand(e.target.value)}></input>
+                        <input type="text" name="brand" value={brand} id="brand" onChange={(e) => setBrand(e.target.value)}></input>
                     </li>
                     <li>
                         <label htmlFor="category">Category</label>
-                        <input type="text" name="category" id="category" onChange={(e) => setCategory(e.target.value)}></input>
+                        <input type="text" name="category" value={category} id="category" onChange={(e) => setCategory(e.target.value)}></input>
                     </li>
                     <li>
                         <label htmlFor="countInStock">Count In Stock</label>
-                        <input type="text" name="countInStock" id="countInStock" onChange={(e) => setCountInStock(e.target.value)}></input>
+                        <input type="text" name="countInStock" value={countInStock} id="countInStock" onChange={(e) => setCountInStock(e.target.value)}></input>
                     </li>
                     <li>
                         <label htmlFor="description">Description</label>
-                        <textarea name="description" id="description" onChange={(e) => setDescription(e.target.value)}></textarea>
+                        <textarea name="description" value={description} id="description" onChange={(e) => setDescription(e.target.value)}></textarea>
                     </li>
                     <li>
                         <button type="submit" className="button">Create</button>
+                    </li>
+                    <li>
+                        <button onClick={()=>setmodalVisibla(false)} type="button" className="button">back</button>
                     </li>
                 </ul>
             </form>
