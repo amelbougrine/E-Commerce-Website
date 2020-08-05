@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {listProducts, saveProduct} from '../actions/productActions';
 
 function ProductScreen (props) {
-    const [modalVisible, setmodalVisibla] = useState(false);
+    const [modalVisible, setModalVisible] = useState(false);
     const [id, setId] = useState('');
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
@@ -79,10 +79,10 @@ function ProductScreen (props) {
                         <textarea name="description" value={description} id="description" onChange={(e) => setDescription(e.target.value)}></textarea>
                     </li>
                     <li>
-                        <button type="submit" className="button">Create</button>
+                        <button type="submit" className="button">{id ? "Update" : "Create"}</button>
                     </li>
                     <li>
-                        <button onClick={()=>setmodalVisibla(false)} type="button" className="button">back</button>
+                        <button onClick={()=>setModalVisible(false)} type="button" className="button">back</button>
                     </li>
                 </ul>
             </form>
@@ -100,7 +100,7 @@ function ProductScreen (props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {products.map(product => (
+                    {products.map((product) => (
                     <tr>
                         <td>{product.id}</td>
                         <td>{product.name}</td>
